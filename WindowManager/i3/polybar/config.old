@@ -1,18 +1,5 @@
-;===============================================================================
-;
-; ██████╗  ██████╗ ██╗     ██╗ ██████╗ ██████╗  █████╗ ██████╗     ██╗ ██╗ ██╗  
-; ██╔══██╗██╔═══██╗██║     ██║██╔═══██╗██╔══██╗██╔══██╗██╔══██╗    ╚██╗╚██╗╚██╗ 
-; ██████╔╝██║   ██║██║     ██║██║   ██║██████╔╝███████║██████╔╝     ╚██╗╚██╗╚██╗
-; ██╔═══╝ ██║   ██║██║     ██║██║   ██║██╔══██╗██╔══██║██╔══██╗     ██╔╝██╔╝██╔╝
-; ██║     ╚██████╔╝███████╗██║╚██████╔╝██████╔╝██║  ██║██║  ██║    ██╔╝██╔╝██╔╝ 
-; ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝ ╚═╝ ╚═╝  
-; 
-;              WHEN POLIO ATTACKS THE POLYBAR THEN WE GET POLIOBAR, 
-;===============================================================================
-
-
 [colors]
-background = #272822
+background = #aa272822
 ; background-alt = #75715E
 background-alt = #444
 foreground = #F8F8F2
@@ -37,9 +24,9 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-modules-left =  i3 custom-bar
-modules-center = custom-bar
-modules-right = pulseaudio cpu memory date temperature filesystem battery
+modules-left =  i3 powermenu
+modules-center = 
+modules-right = pulseaudio cpu memory date network filesystem battery
 module-margin = 1
 padding-right = 5 
 tray-position = right
@@ -170,8 +157,6 @@ ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
 
-
-
 [module/battery]
 type = internal/battery
 full-at = 99
@@ -190,7 +175,7 @@ label-charging = %percentage%%
 label-discharging = %percentage%%
 format-charging-underline = ${colors.orange}
 format-discharging-underline = ${colors.orange}
-label-full = Fully charged
+label-full = 
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -314,6 +299,110 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 ; click-right = pavucontrol
 click-middle = pavucontrol
+
+
+[module/network]
+type = internal/network
+interface = wlp1s0
+
+interface-type = wireless
+
+interval = 3.0
+
+;ping-interval = 3
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <ramp-signal> <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %netspeed%  [wireless+wired] (%upspeed% + %downspeed%) (New in version 3.6.0)
+;   %linkspeed% [wired]
+;   %mac%       [wireless+wired] (New in version 3.6.0)
+
+; Default: %ifname% %local_ip%
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = #eefafafa
+
+; Default: (none)
+label-disconnected = not connected
+label-disconnected-foreground = #66ffffff
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+
+ [module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = ⭕
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot                                                          
+menu-1-1-exec = sudo reboot                                                
+
+menu-2-0 = power off                                                       
+menu-2-0-exec = sudo poweroff                                              
+menu-2-1 = cancel                                                          
+menu-2-1-exec = menu-open-0
+
+
+
+
+
+
+
+
+
 
 [global/wm]
 
