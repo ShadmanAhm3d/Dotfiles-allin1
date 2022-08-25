@@ -1,0 +1,159 @@
+Once upon a time, in the land of Govindpur, it did not rain for full 6 months. The people of Govindpur went to Lord Indra and prayed "Lord please give us rain or we'll all starve to death". Lord Indra said " No, I will not give you any rain for 12 years or till God Shiv plays his Damru". Hearing this, they all went to God Shiv and said "Oh merciful Mahadev, please play your Damru, its only then that Lord Indra would bless us with rain".
+
+But they did not know that Lord Indra had requested God Shiv to not play his Damru for 12 years even if people of Earth requested him. So, Shiv said " No I will not play my Darmu before 12 years". All the people went away sad.
+
+In Govindpur, people gave up hope and started living a sad and still life. Only person was continuously working in his fields day and night doing eveything to grow his crops. People laughed at him for doing this as they all knew that it was not going to rain for 12 years. When asked the reason for his doing so, he said "I might forget how to work in the fields if I wait for rain for 12 years, so I am just practicing so that I am ready when it rains".
+
+Seeing his dedication, Godess Parvati decided to help him. Cleverly, She asked God Shiv "Dear, if he can forget his skills of working in the field, you too might forget how to play your Damru in 12 years". Hearing this God Shiv said "That is never going to happen. See." And saying this he picked up his Damru and played it hard. As soon as he played it, he knew what happened. God Shiv laughed heartily at  the wit of his wife and people danced in joy as it rained. But only one person in entire Govindpur was truly happy as he had practiced, worked hard, and was ready for the rain. He was able to recieve the reward for his hard work immidiately while others just looked at him with admiration.
+
+Moral of the story: Even in tough time, we should keep practicing and work hard on our skills.
+
+
+
+// Use an indexer to create a fail-soft array. 
+ 
+using System; 
+ 
+class FailSoftArray {  
+  
+ int prop;
+  
+   FailSoftArray(){   prop = 0;}
+ 
+ 
+  public int this[int index] { 
+    // This is the get accessor. 
+    get { 
+      
+        return ( prop + index); 
+      
+       
+    } 
+ 
+    // This is the set accessor. 
+    set { 
+      
+        prop = value; //90
+	C.w.(prop);//
+         
+    } 
+  } 
+ 
+ 
+  } 
+}  
+  
+// Demonstrate the fail-soft array. 
+class FSDemo {  
+  static void Main() {  
+    FailSoftArray fs = new FailSoftArray(); 
+    int x;
+ fs[150000] = 78; 
+ c.w.(fs[150000]);// 78
+    
+    for(int i=0; i < (5 * 2); i++) 
+      fs[i] = i*10; fs[0] = 0; fs[3]....fs[9] = 90 ..last value of prop;
+ 
+    for(int i=0; i < (5* 2); i++) { 
+      x = fs[i];    x  = fs[200];
+   Console.WriteLine(x);
+    } 
+    Console.WriteLine(); 
+ 
+   
+  } 
+}
+
+
+
+
+
+
+
+
+ob[0]...... this[]-->> get{}
+
+
+ob[0] = "string";  this[]--->>set
+
+
+
+
+ob["first"] = 1;
+ob["second"] = 2;
+
+ob["first","second"] = 34;
+
+public int this[ string s1, string s2]{
+
+	set{
+
+		Console.WriteLine("On the index" + s1 + " and "+ s2 + "the value is "+ 					value);
+
+	}
+
+	get{
+
+		return (s1.Length +s2.Length);
+		
+	}
+
+
+C.W( ob["first","second"]);//
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
