@@ -15,9 +15,9 @@ require "user.comment"
 require "user.gitsigns"
 require "user.nvim-tree"
 require "user.bufferline"
-require "user.lualine"
+--require "user.lualine"
 require "user.toggleterm"
-vim.notify = require('notify')
+--vim.notify = require('notify')
 require "user.colorozer"
 --vim.cmd('TransparentEnable')
 
